@@ -22,7 +22,7 @@ class MNRPES
 
     def subscribe(destination)
       Log.info("Subscribing to #{destination}")
-      @connector.connection.subscribe(destination)
+      @connector.connection.subscribe(destination, {}, destination)
     end
 
     def receive_and_submit
