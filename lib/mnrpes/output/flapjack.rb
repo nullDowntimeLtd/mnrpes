@@ -48,7 +48,7 @@ class MNRPES
 
         event = {
           'entity'      => result[:senderid],
-          'check'       => data[:command].gsub("check_", ""),
+          'check'       => data[:command],
           'type'        => 'service',
           'state'       => status_for_code(data[:exitcode]),
           'summary'     => data[:output].chomp,

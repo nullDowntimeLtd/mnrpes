@@ -99,7 +99,7 @@ class MNRPES
         raise "No data received" unless result
 
         data = result[:body][:data]
-        check = data[:command].gsub(/^check_/, "")
+        check = data[:command]
         last_check = Time.now.utc.to_i
         key = "status:%s:%s" % [result[:senderid], check]
         r = Redis.current
