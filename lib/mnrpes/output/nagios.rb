@@ -22,7 +22,7 @@ class MNRPES
           output = data[:output]
         end
 
-        passive_check = "[%d] PROCESS_SERVICE_CHECK_RESULT;%s;%s;%d;%s" % [result[:msgtime], result[:senderid], data[:command].gsub("check_", ""), data[:exitcode], output]
+        passive_check = "[%d] PROCESS_SERVICE_CHECK_RESULT;%s;%s;%d;%s" % [result[:msgtime], result[:senderid], data[:command], data[:exitcode], output]
 
         Log.info("Submitting passive data to nagios: #{passive_check}")
         File.open(@command_file, "w") {|nagios| nagios.puts passive_check }
